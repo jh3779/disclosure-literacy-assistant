@@ -21,6 +21,7 @@
   | `powercodingman` | 이승노 | A — DART 파이프라인, 과거 공시 사례 라벨링 |
   | `9abin` | 김가빈 | B — L2a 팩트체크 엔진 |
   | `jh3779` | 우지훈 | C — L1 조회 연동, L2b 화법통계 엔진, L3/L4 통합 UI, L5 gold set |
+
 - 기준 설계는 [DESIGN.md](DESIGN.md), 화면 계약은 [03_screen_contract.md](03_screen_contract.md)를 본다.
   이 문서는 그 결정에 이른 과정만 다룬다.
 
