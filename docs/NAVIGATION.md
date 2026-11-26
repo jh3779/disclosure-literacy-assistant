@@ -14,6 +14,7 @@
 | [BRANCHING.md](BRANCHING.md) | 브랜치 보호 설정, 브랜치 네이밍, PR 작업 흐름, AI 협업 규칙 |
 | [DEV-SETUP.md](DEV-SETUP.md) | uv 기반 개발 환경 설치·검증 방법(실제 절차는 README 참고) |
 | NAVIGATION.md | 이 문서 |
+| [discussion-history.md](discussion-history.md) | 비공개 개발 저장소의 이슈·PR 논의(2026-09-07~11-26)를 결정 중심으로 정리한 요약 기록 |
 | [00_project_brief.md](00_project_brief.md) ~ [06_open_questions.md](06_open_questions.md) | discovery-interview 스펙 세트 — 요구사항(REQ-*)·화면(SCR-*)·플로우(FLOW-*)·데이터(ENT-*)·상태(STATE-*)·미해결 질문(OQ-*)/가정(ASM-*). 기준문서(PRD-MVP.md/DESIGN.md)를 추적 가능한 ID 체계로 재정리한 것이지 새 결정을 만든 문서가 아니다 |
 | [07_visual_style.md](07_visual_style.md) | 디자인 스타일 확정(ColorScheme "Ledger Blue") — 왜 신호등 색을 안 쓰는지 포함 |
 | [08_system_flow.md](08_system_flow.md) | RAG 파이프라인(로딩~평가)을 실제 파일·함수에 대입한 Mermaid 다이어그램, 구현/미구현 표시 |

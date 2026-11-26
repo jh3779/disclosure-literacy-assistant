@@ -169,6 +169,7 @@ tests/             690여 건(계층 의존 방향 검사 포함)
 | [docs/PRD-MVP.md](docs/PRD-MVP.md) | 기획·주제 결정 경위 |
 | [docs/DESIGN.md](docs/DESIGN.md) | 아키텍처·Phase·마일스톤 |
 | [docs/testing/](docs/testing/) | 기능별 검증 기록 |
+| [docs/discussion-history.md](docs/discussion-history.md) | 개발 과정의 쟁점·결정 기록(비공개 저장소 이슈·PR 요약) |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | 브랜치·리뷰 규칙 |
 
 ---
