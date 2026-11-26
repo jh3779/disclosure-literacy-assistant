@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>공시 리터러시 DS · 4 구현 매핑 (Streamlit)</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <span class="brand">공시 리터러시 DS <span class="mono" style="font-size:11px;font-weight:500">v2</span></span>
+  <a href="design-system.html">1 · 원칙 &amp; 파운데이션</a>
+  <a href="components.html">2 · 컴포넌트</a>
+  <a href="patterns.html">3 · 상태 패턴 · 접근성</a>
+  <span class="cur">4 · 구현 매핑 (Streamlit)</span>
+  <a href="wireframes.html">5 · 화면 · 와이어프레임</a>
+  <span class="spacer"></span>
+  <button data-theme-toggle>◐ 테마</button>
+</nav>
+
+<div class="wrap">
+  <aside class="note" style="margin:16px 0;padding:16px" role="note">
+    <strong>초기 설계 아카이브 · 2026-09-11</strong> — 현재 UI에는 레트로 입력 단말기와
+    서술형 맥락 지도를 사용합니다. 아래 예측형 통계·종목 미특정 경로는 현행 구현 기준이 아닙니다.
+    <a href="../03_screen_contract.md">현재 화면 계약</a> ·
+    <a href="../07_visual_style.md">레트로 적용 범위</a>
+  </aside>
+
+  <header class="pagehead">
+    <div class="t">4 · 구현 매핑 — Streamlit</div>
+    <div class="s">토큰·컴포넌트를 <code>demo/app.py</code>에 잇는다 — 정본: <code>../06_open_questions.md</code> DEC-005·006</div>
+    <div class="toc">
+      <a href="#m1">토큰 → config/CSS</a><a href="#m2">컴포넌트 → 위젯</a><a href="#m3">상태머신 → 분기</a><a href="#m4">파이프라인 연결</a><a href="#m5">Conflict List</a>
+    </div>
+  </header>
+
+  <section id="m1" class="sec card pad">
+    <div class="sec-h"><span class="sec-num">M-01</span><span class="sec-t">토큰 → config.toml / CSS 주입</span><span class="tag">DEC-006 · REQ-NF-001</span></div>
+    <div class="note"><span class="mono">.streamlit/config.toml</span>의 <span class="mono">[theme]</span>는 색만 받고 커스텀 웹폰트는 못 받는다 — Pretendard는 <span class="mono">st.markdown</span>으로 CSS를 따로 주입해야 한다.</div>
+    <pre style="background:var(--ds-surface-container-low);border:1px solid var(--ds-outline-variant);border-radius:8px;padding:12px 14px;font-family:var(--ds-font-mono);font-size:12px;overflow-x:auto;margin-top:8px"><span style="color:var(--ds-outline)"># .streamlit/config.toml</span>
+[theme]
+primaryColor = "#2F5FA8"
+backgroundColor = "#FBFAFD"
+secondaryBackgroundColor = "#EFEDF4"
+textColor = "#1A1B20"</pre>
+    <div class="tblwrap" style="margin-top:10px"><table>
+      <tr><th>DS 토큰</th><th>Streamlit 적용</th></tr>
+      <tr><td class="mono">--ds-primary</td><td><span class="mono">config.toml primaryColor</span> + <span class="mono">st.button(type="primary")</span></td></tr>
+      <tr><td class="mono">--ds-surface / surface-container</td><td><span class="mono">backgroundColor</span> / <span class="mono">secondaryBackgroundColor</span></td></tr>
+      <tr><td class="mono">--ds-st-* 2종</td><td>C-05 배지는 순수 CSS(하드코딩 금지 — 토큰 값을 <span class="mono">st.markdown</span> 인라인 style에 그대로 삽입)</td></tr>
+      <tr><td>Pretendard / Roboto Mono</td><td><span class="mono">st.set_page_config()</span> 직후 <span class="mono">st.markdown("&lt;style&gt;@import ...&lt;/style&gt;", unsafe_allow_html=True)</span></td></tr>
+    </table></div>
+  </section>
+
+  <section id="m2" class="sec card pad">
+    <div class="sec-h"><span class="sec-num">M-02</span><span class="sec-t">컴포넌트 → Streamlit 위젯</span><span class="tag">C-01~08 대응</span></div>
+    <div class="tblwrap"><table>
+      <tr><th>컴포넌트</th><th>Streamlit 구현</th><th>비고</th></tr>
+      <tr><td class="mono">C-01 입력창</td><td class="mono">st.text_area(placeholder=...)</td><td>라벨 "루머 또는 공시 문장"</td></tr>
+      <tr><td class="mono">C-02 확인 버튼</td><td class="mono">st.button("확인", type="primary")</td><td>클릭 시에만 조회 실행(입력 중 자동 실행 없음)</td></tr>
+      <tr><td class="mono">C-03 팩트체크 카드</td><td class="mono">st.columns(2)</td><td><code>demo/app.py::_render_fact_check</code></td></tr>
+      <tr><td class="mono">C-04 근거 원문</td><td class="mono">st.expander(f"근거 원문 — {form_type}")</td><td>항목별 반복 생성</td></tr>
+      <tr><td class="mono">C-05 화법통계 카드</td><td class="mono">st.markdown + st.warning(표본부족 시)</td><td><code>demo/app.py::_render_phrase_stats</code></td></tr>
+      <tr><td class="mono">C-06 스피너</td><td class="mono">st.spinner("공시 대조 중...")</td><td><span class="mono">with</span> 블록으로 조회 전체를 감쌈</td></tr>
+      <tr><td class="mono">C-07 샘플 배지</td><td class="mono">st.caption("🧪 ...")</td><td><span class="mono">is_sample</span> 플래그가 True일 때만</td></tr>
+    </table></div>
+  </section>
+
+  <section id="m3" class="sec card pad">
+    <div class="sec-h"><span class="sec-num">M-03</span><span class="sec-t">상태 머신 → 분기 로직</span><span class="tag">STATE-001 · demo/app.py</span></div>
+    <div class="note">Streamlit은 세션 상태 저장소가 아니라 <b>매 상호작용마다 스크립트 전체를 재실행</b>한다 — STATE-001의 각 상태는 별도 변수가 아니라 <span class="mono">_build_card()</span> 안의 조건 분기 결과로만 존재한다(재실행마다 처음부터 다시 계산).</div>
+    <div class="tblwrap" style="margin-top:8px"><table>
+      <tr><th>상태</th><th>분기 조건(코드)</th></tr>
+      <tr><td class="mono">result-fact</td><td class="mono">claim.corp_code and fact_check.items</td></tr>
+      <tr><td class="mono">result-phrase-only</td><td class="mono">not claim.corp_code</td></tr>
+      <tr><td class="mono">result-empty</td><td class="mono">claim.corp_code and not fact_check.items</td></tr>
+      <tr><td class="mono">sample</td><td><span class="mono">except NotImplementedError</span> (여러 지점)</td></tr>
+    </table></div>
+  </section>
+
+  <section id="m4" class="sec card pad">
+    <div class="sec-h"><span class="sec-num">M-04</span><span class="sec-t">파이프라인 연결</span><span class="tag">DEC-005 · pipeline.py</span></div>
+    <div class="note">L1 검색 → L2a/L2b 오케스트레이션은 <code>disclosure_lit/pipeline.py</code>가 전담한다(Issue #32/DEC-005 확정). <code>demo/app.py</code>는 이 함수들만 호출하고 직접 검색 로직을 갖지 않는다.</div>
+    <pre style="background:var(--ds-surface-container-low);border:1px solid var(--ds-outline-variant);border-radius:8px;padding:12px 14px;font-family:var(--ds-font-mono);font-size:11.5px;overflow-x:auto;margin-top:8px">run_factcheck(claim, *, company_index, corp_code_index) -&gt; FactCheckResult
+run_dictionary_lookup(phrase, *, phrase_index) -&gt; ClusterStats | None
+resolve_corp_code(claim, corp_code_index) -&gt; str | None</pre>
+  </section>
+
+  <section id="m5" class="sec card pad">
+    <div class="sec-h"><span class="sec-num">M-05</span><span class="sec-t">Conflict List — 임의 확정하지 않음</span><span class="tag">../06_open_questions.md</span></div>
+    <div class="note">
+      · <b>OQ-001</b> — <span class="mono">scripts/collect_disclosures.py</span>(#31)가 <span class="mono">rcept_dt</span>를 아직 안 채움. 채워지기 전까지 C-03/C-04의 "최신순" 정렬은 실질적으로 무의미(기본값 <span class="mono">""</span>이라 깨지진 않음) — 담당 A.<br>
+      · <b>OQ-004</b> — 정확한 일정 미정(강의 측 공지 대기) — 이 페이지의 어떤 마일스톤 표기도 그 공지 전까지는 잠정.<br>
+      · <b>OQ-005</b> — 대량 코퍼스 영속화 방식 미정 — M-01의 성능 관련 결정은 이 답이 나오면 재검토될 수 있음.
+    </div>
+  </section>
+
+  <footer class="ds">공시 리터러시 어시스턴트 DS v2 · 2026-09-11</footer>
+</div>
+
+<script src="ds.js"></script>
+</body>
+</html>

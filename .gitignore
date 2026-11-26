@@ -1,0 +1,55 @@
+# --- python ---
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# --- secrets ---
+.env
+.env.local
+*.key
+
+# --- 저작권 있는 코퍼스 (팀 내부에서만 별도 공유, GitHub Release로 — DEV-SETUP.md 8절) ---
+# "data/raw/" 대신 "data/raw/*"를 써야 아래 !corpus_companies.json 예외가 먹는다 —
+# 디렉터리 자체를 통째로 무시하면 git이 그 안을 아예 안 들여다봐서 negation이 안 먹는다.
+data/raw/*
+!data/raw/corpus_companies.json
+# corpus_companies.json 은 A10이 선정한 회사 목록(메타데이터, 저작권 있는 공시 원문
+# 아님)이라 커밋한다 — 팀원이 collect_disclosures.py로 코퍼스를 재현할 때 "어느
+# 100개사인지"가 이 파일 하나로 고정된다(DEV-SETUP.md 8절 재현 절차 참고).
+data/sections/*/
+!data/sections/.gitkeep
+
+# --- 파생 데이터 (재생성 가능) ---
+data/*.sqlite
+data/*.npy
+# demo/app.py 콜드스타트 디스크 캐시(cache_store.py) — 재생성 가능, 지문 기반이라
+# 코퍼스/설정이 바뀌면 알아서 무효화된다.
+data/cache/
+data/game/
+eval/results/
+
+# --- 발표 산출물 (PPT·시연 영상): 파일당 200MB대라 GitHub 100MB 하드 리밋을 넘는다 ---
+# 커밋 대상이 아니라 로컬 보관용. 공유가 필요하면 코퍼스와 같은 방식으로 GitHub
+# Release에 올린다(DEV-SETUP.md 8절). 목록·출처는 docs/presentation/README.md.
+docs/presentation/*
+!docs/presentation/README.md
+
+# --- 이 프로젝트와 무관한 옛 문서 (review-coach) ---
+review-bot-PRD*.md
+review-bot-PRD*.html
+review-coach-*.md
+
+# --- os ---
+.DS_Store
+Thumbs.db
+
+# --- editors ---
+.vscode/
+.idea/
+
+# --- 에이전트 작업 메모 (로컬 전용) ---
+# 세션 인계·결정 기록·스크래치. 팀원마다 내용이 다르고 미정리 메모가 섞이므로 커밋하지 않는다.
+.agent/

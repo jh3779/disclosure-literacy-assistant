@@ -1,0 +1,702 @@
+[
+  {
+    "corp_code": "01196313",
+    "corp_name": "(주)유에스티",
+    "stock_code": "263770",
+    "corp_cls": "K",
+    "induty_code": "241"
+  },
+  {
+    "corp_code": "01032486",
+    "corp_name": "두산밥캣 주식회사",
+    "stock_code": "241560",
+    "corp_cls": "Y",
+    "induty_code": "29241"
+  },
+  {
+    "corp_code": "00526951",
+    "corp_name": "(주)신화프리텍",
+    "stock_code": "095190",
+    "corp_cls": "K",
+    "induty_code": "259"
+  },
+  {
+    "corp_code": "00159023",
+    "corp_name": "SK텔레콤(주)",
+    "stock_code": "017670",
+    "corp_cls": "Y",
+    "induty_code": "61220"
+  },
+  {
+    "corp_code": "00243067",
+    "corp_name": "(주)부방",
+    "stock_code": "014470",
+    "corp_cls": "K",
+    "induty_code": "681"
+  },
+  {
+    "corp_code": "01829819",
+    "corp_name": "(주)아크릴",
+    "stock_code": "0007C0",
+    "corp_cls": "K",
+    "induty_code": "58222"
+  },
+  {
+    "corp_code": "00139764",
+    "corp_name": "(주)에넥스",
+    "stock_code": "011090",
+    "corp_cls": "Y",
+    "induty_code": "32021"
+  },
+  {
+    "corp_code": "00616290",
+    "corp_name": "(주)이엠넷",
+    "stock_code": "123570",
+    "corp_cls": "K",
+    "induty_code": "71310"
+  },
+  {
+    "corp_code": "00126308",
+    "corp_name": "삼성이앤에이(주)",
+    "stock_code": "028050",
+    "corp_cls": "Y",
+    "induty_code": "72129"
+  },
+  {
+    "corp_code": "00149655",
+    "corp_name": "삼성물산(주)",
+    "stock_code": "028260",
+    "corp_cls": "Y",
+    "induty_code": "467"
+  },
+  {
+    "corp_code": "00925295",
+    "corp_name": "(주)에프엔씨엔터테인먼트",
+    "stock_code": "173940",
+    "corp_cls": "K",
+    "induty_code": "901"
+  },
+  {
+    "corp_code": "00103176",
+    "corp_name": "흥국화재해상보험(주)",
+    "stock_code": "000540",
+    "corp_cls": "Y",
+    "induty_code": "65121"
+  },
+  {
+    "corp_code": "01041828",
+    "corp_name": "주식회사 제이티씨",
+    "stock_code": "950170",
+    "corp_cls": "K",
+    "induty_code": "471"
+  },
+  {
+    "corp_code": "00204642",
+    "corp_name": "(주)티비씨",
+    "stock_code": "033830",
+    "corp_cls": "K",
+    "induty_code": "60210"
+  },
+  {
+    "corp_code": "01227039",
+    "corp_name": "파라택시스 코리아(주)",
+    "stock_code": "288330",
+    "corp_cls": "K",
+    "induty_code": "739"
+  },
+  {
+    "corp_code": "00131896",
+    "corp_name": "(주)선광",
+    "stock_code": "003100",
+    "corp_cls": "K",
+    "induty_code": "52942"
+  },
+  {
+    "corp_code": "01175499",
+    "corp_name": "주식회사 큐에이드",
+    "stock_code": "377460",
+    "corp_cls": "K",
+    "induty_code": "953"
+  },
+  {
+    "corp_code": "00126478",
+    "corp_name": "삼성중공업(주)",
+    "stock_code": "010140",
+    "corp_cls": "Y",
+    "induty_code": "3111"
+  },
+  {
+    "corp_code": "00526836",
+    "corp_name": "미래나노텍(주)",
+    "stock_code": "095500",
+    "corp_cls": "K",
+    "induty_code": "2229"
+  },
+  {
+    "corp_code": "00398701",
+    "corp_name": "(주)엘앤에프",
+    "stock_code": "066970",
+    "corp_cls": "Y",
+    "induty_code": "28202"
+  },
+  {
+    "corp_code": "00628189",
+    "corp_name": "(주)웅진씽크빅",
+    "stock_code": "095720",
+    "corp_cls": "Y",
+    "induty_code": "85120"
+  },
+  {
+    "corp_code": "01391103",
+    "corp_name": "(주)젝시믹스",
+    "stock_code": "337930",
+    "corp_cls": "K",
+    "induty_code": "639"
+  },
+  {
+    "corp_code": "00759294",
+    "corp_name": "(주)와이솔",
+    "stock_code": "122990",
+    "corp_cls": "K",
+    "induty_code": "2629"
+  },
+  {
+    "corp_code": "00202060",
+    "corp_name": "(주)구영테크",
+    "stock_code": "053270",
+    "corp_cls": "K",
+    "induty_code": "303"
+  },
+  {
+    "corp_code": "00113359",
+    "corp_name": "교보증권(주)",
+    "stock_code": "030610",
+    "corp_cls": "Y",
+    "induty_code": "66121"
+  },
+  {
+    "corp_code": "00117276",
+    "corp_name": "(주)네이처셀",
+    "stock_code": "007390",
+    "corp_cls": "K",
+    "induty_code": "211"
+  },
+  {
+    "corp_code": "00864338",
+    "corp_name": "(주)웹스",
+    "stock_code": "196700",
+    "corp_cls": "K",
+    "induty_code": "20203"
+  },
+  {
+    "corp_code": "00201131",
+    "corp_name": "(주)아즈텍더블유비이",
+    "stock_code": "032080",
+    "corp_cls": "K",
+    "induty_code": "13402"
+  },
+  {
+    "corp_code": "01068737",
+    "corp_name": "주식회사 에이치피오",
+    "stock_code": "357230",
+    "corp_cls": "K",
+    "induty_code": "108"
+  },
+  {
+    "corp_code": "00261285",
+    "corp_name": "한국가스공사(주)",
+    "stock_code": "036460",
+    "corp_cls": "Y",
+    "induty_code": "35200"
+  },
+  {
+    "corp_code": "00332927",
+    "corp_name": "(주)제이에스코퍼레이션",
+    "stock_code": "194370",
+    "corp_cls": "Y",
+    "induty_code": "15121"
+  },
+  {
+    "corp_code": "00122481",
+    "corp_name": "(주)태경비케이",
+    "stock_code": "014580",
+    "corp_cls": "Y",
+    "induty_code": "23312"
+  },
+  {
+    "corp_code": "00106881",
+    "corp_name": "(주)인디에프",
+    "stock_code": "014990",
+    "corp_cls": "Y",
+    "induty_code": "14112"
+  },
+  {
+    "corp_code": "00335076",
+    "corp_name": "(주)오픈베이스",
+    "stock_code": "049480",
+    "corp_cls": "K",
+    "induty_code": "62021"
+  },
+  {
+    "corp_code": "00135962",
+    "corp_name": "신라교역(주)",
+    "stock_code": "004970",
+    "corp_cls": "Y",
+    "induty_code": "03111"
+  },
+  {
+    "corp_code": "01364297",
+    "corp_name": "(주)코퍼스코리아",
+    "stock_code": "322780",
+    "corp_cls": "K",
+    "induty_code": "591"
+  },
+  {
+    "corp_code": "00363246",
+    "corp_name": "우원개발(주)",
+    "stock_code": "046940",
+    "corp_cls": "K",
+    "induty_code": "421"
+  },
+  {
+    "corp_code": "00654175",
+    "corp_name": "(주)피엠티",
+    "stock_code": "147760",
+    "corp_cls": "K",
+    "induty_code": "27212"
+  },
+  {
+    "corp_code": "00122694",
+    "corp_name": "범양건영(주)",
+    "stock_code": "002410",
+    "corp_cls": "Y",
+    "induty_code": "411"
+  },
+  {
+    "corp_code": "00336817",
+    "corp_name": "에이치엘비제약(주)",
+    "stock_code": "047920",
+    "corp_cls": "K",
+    "induty_code": "70111"
+  },
+  {
+    "corp_code": "00153126",
+    "corp_name": "(주)크라운해태홀딩스",
+    "stock_code": "005740",
+    "corp_cls": "Y",
+    "induty_code": "64992"
+  },
+  {
+    "corp_code": "00163512",
+    "corp_name": "(주)한진",
+    "stock_code": "002320",
+    "corp_cls": "Y",
+    "induty_code": "49309"
+  },
+  {
+    "corp_code": "00117027",
+    "corp_name": "(주)알루코",
+    "stock_code": "001780",
+    "corp_cls": "Y",
+    "induty_code": "24222"
+  },
+  {
+    "corp_code": "00610083",
+    "corp_name": "(주)비아트론",
+    "stock_code": "141000",
+    "corp_cls": "K",
+    "induty_code": "29272"
+  },
+  {
+    "corp_code": "00148595",
+    "corp_name": "(주)제일테크노스",
+    "stock_code": "038010",
+    "corp_cls": "K",
+    "induty_code": "2511"
+  },
+  {
+    "corp_code": "00244783",
+    "corp_name": "(주)한네트",
+    "stock_code": "052600",
+    "corp_cls": "K",
+    "induty_code": "61299"
+  },
+  {
+    "corp_code": "01535150",
+    "corp_name": "에스케이위탁관리부동산투자회사 주식회사",
+    "stock_code": "395400",
+    "corp_cls": "Y",
+    "induty_code": "68112"
+  },
+  {
+    "corp_code": "01709065",
+    "corp_name": "(주)마키나락스",
+    "stock_code": "477850",
+    "corp_cls": "K",
+    "induty_code": "582"
+  },
+  {
+    "corp_code": "00407771",
+    "corp_name": "(주)듀오백",
+    "stock_code": "073190",
+    "corp_cls": "K",
+    "induty_code": "32091"
+  },
+  {
+    "corp_code": "01051065",
+    "corp_name": "(주)엔비티",
+    "stock_code": "236810",
+    "corp_cls": "K",
+    "induty_code": "71310"
+  },
+  {
+    "corp_code": "00159731",
+    "corp_name": "글로본(주)",
+    "stock_code": "019660",
+    "corp_cls": "K",
+    "induty_code": "468"
+  },
+  {
+    "corp_code": "01461730",
+    "corp_name": "(주)딜리셔스",
+    "stock_code": "483350",
+    "corp_cls": "K",
+    "induty_code": "47911"
+  },
+  {
+    "corp_code": "01010642",
+    "corp_name": "(주)지씨셀",
+    "stock_code": "144510",
+    "corp_cls": "K",
+    "induty_code": "73909"
+  },
+  {
+    "corp_code": "00152437",
+    "corp_name": "(주)케이프",
+    "stock_code": "064820",
+    "corp_cls": "K",
+    "induty_code": "31114"
+  },
+  {
+    "corp_code": "00199988",
+    "corp_name": "SY동아(주)",
+    "stock_code": "041930",
+    "corp_cls": "K",
+    "induty_code": "2219"
+  },
+  {
+    "corp_code": "00318316",
+    "corp_name": "대아티아이(주)",
+    "stock_code": "045390",
+    "corp_cls": "K",
+    "induty_code": "289"
+  },
+  {
+    "corp_code": "00645089",
+    "corp_name": "(주)엔에이치엔벅스",
+    "stock_code": "104200",
+    "corp_cls": "K",
+    "induty_code": "639"
+  },
+  {
+    "corp_code": "00370255",
+    "corp_name": "(주)테크엘",
+    "stock_code": "064520",
+    "corp_cls": "K",
+    "induty_code": "2612"
+  },
+  {
+    "corp_code": "00800145",
+    "corp_name": "(주)서진오토모티브",
+    "stock_code": "122690",
+    "corp_cls": "K",
+    "induty_code": "303"
+  },
+  {
+    "corp_code": "01801822",
+    "corp_name": "에스케이증권제13호기업인수목적 주식회사",
+    "stock_code": "473950",
+    "corp_cls": "K",
+    "induty_code": "66199"
+  },
+  {
+    "corp_code": "01236897",
+    "corp_name": "제일약품(주)",
+    "stock_code": "271980",
+    "corp_cls": "Y",
+    "induty_code": "212"
+  },
+  {
+    "corp_code": "01301252",
+    "corp_name": "티이엠씨 주식회사",
+    "stock_code": "425040",
+    "corp_cls": "K",
+    "induty_code": "20121"
+  },
+  {
+    "corp_code": "01238169",
+    "corp_name": "(주)오리온",
+    "stock_code": "271560",
+    "corp_cls": "Y",
+    "induty_code": "108"
+  },
+  {
+    "corp_code": "00367710",
+    "corp_name": "(주)동인기연",
+    "stock_code": "111380",
+    "corp_cls": "Y",
+    "induty_code": "151"
+  },
+  {
+    "corp_code": "00148984",
+    "corp_name": "주식회사 시알홀딩스",
+    "stock_code": "000480",
+    "corp_cls": "Y",
+    "induty_code": "2321"
+  },
+  {
+    "corp_code": "01390399",
+    "corp_name": "솔트웨어 주식회사",
+    "stock_code": "328380",
+    "corp_cls": "K",
+    "induty_code": "620"
+  },
+  {
+    "corp_code": "00299464",
+    "corp_name": "(주)초록뱀미디어",
+    "stock_code": "047820",
+    "corp_cls": "K",
+    "induty_code": "59114"
+  },
+  {
+    "corp_code": "00159218",
+    "corp_name": "한전KPS(주)",
+    "stock_code": "051600",
+    "corp_cls": "Y",
+    "induty_code": "42311"
+  },
+  {
+    "corp_code": "00977641",
+    "corp_name": "(주)하이로닉",
+    "stock_code": "149980",
+    "corp_cls": "K",
+    "induty_code": "27199"
+  },
+  {
+    "corp_code": "00145668",
+    "corp_name": "이화공영(주)",
+    "stock_code": "001840",
+    "corp_cls": "K",
+    "induty_code": "411"
+  },
+  {
+    "corp_code": "00447502",
+    "corp_name": "(주)바이오톡스텍",
+    "stock_code": "086040",
+    "corp_cls": "K",
+    "induty_code": "70113"
+  },
+  {
+    "corp_code": "00109189",
+    "corp_name": "(주)대덕",
+    "stock_code": "008060",
+    "corp_cls": "Y",
+    "induty_code": "64992"
+  },
+  {
+    "corp_code": "00129509",
+    "corp_name": "(주)한익스프레스",
+    "stock_code": "014130",
+    "corp_cls": "Y",
+    "induty_code": "49301"
+  },
+  {
+    "corp_code": "00158024",
+    "corp_name": "케이비아이메탈(주)",
+    "stock_code": "024840",
+    "corp_cls": "K",
+    "induty_code": "242"
+  },
+  {
+    "corp_code": "01020843",
+    "corp_name": "(주)원익피앤이",
+    "stock_code": "217820",
+    "corp_cls": "K",
+    "induty_code": "292"
+  },
+  {
+    "corp_code": "00534701",
+    "corp_name": "(주)에이치티로보틱스",
+    "stock_code": "396300",
+    "corp_cls": "K",
+    "induty_code": "259"
+  },
+  {
+    "corp_code": "00415707",
+    "corp_name": "(주)엔텔스",
+    "stock_code": "069410",
+    "corp_cls": "K",
+    "induty_code": "58221"
+  },
+  {
+    "corp_code": "00148276",
+    "corp_name": "(주)제일기획",
+    "stock_code": "030000",
+    "corp_cls": "Y",
+    "induty_code": "71310"
+  },
+  {
+    "corp_code": "00261009",
+    "corp_name": "감성코퍼레이션(주)",
+    "stock_code": "036620",
+    "corp_cls": "K",
+    "induty_code": "467"
+  },
+  {
+    "corp_code": "00357360",
+    "corp_name": "한세엠케이(주)",
+    "stock_code": "069640",
+    "corp_cls": "Y",
+    "induty_code": "4741"
+  },
+  {
+    "corp_code": "01487446",
+    "corp_name": "(주)씨엔알리서치",
+    "stock_code": "359090",
+    "corp_cls": "K",
+    "induty_code": "739"
+  },
+  {
+    "corp_code": "00111193",
+    "corp_name": "대양전기공업(주)",
+    "stock_code": "108380",
+    "corp_cls": "K",
+    "induty_code": "31114"
+  },
+  {
+    "corp_code": "00144012",
+    "corp_name": "(주)원풍",
+    "stock_code": "008370",
+    "corp_cls": "K",
+    "induty_code": "22212"
+  },
+  {
+    "corp_code": "00231044",
+    "corp_name": "(주)우리기술",
+    "stock_code": "032820",
+    "corp_cls": "K",
+    "induty_code": "281"
+  },
+  {
+    "corp_code": "00243757",
+    "corp_name": "인포뱅크(주)",
+    "stock_code": "039290",
+    "corp_cls": "K",
+    "induty_code": "639"
+  },
+  {
+    "corp_code": "00760999",
+    "corp_name": "상신전자(주)",
+    "stock_code": "263810",
+    "corp_cls": "K",
+    "induty_code": "2629"
+  },
+  {
+    "corp_code": "00147860",
+    "corp_name": "(주)에스엠벡셀",
+    "stock_code": "010580",
+    "corp_cls": "Y",
+    "induty_code": "303"
+  },
+  {
+    "corp_code": "01910759",
+    "corp_name": "삼성기업인수목적10호(주)",
+    "stock_code": "0044K0",
+    "corp_cls": "K",
+    "induty_code": "66199"
+  },
+  {
+    "corp_code": "00110431",
+    "corp_name": "제이더블유신약(주)",
+    "stock_code": "067290",
+    "corp_cls": "K",
+    "induty_code": "212"
+  },
+  {
+    "corp_code": "00101433",
+    "corp_name": "(주)경농",
+    "stock_code": "002100",
+    "corp_cls": "Y",
+    "induty_code": "2032"
+  },
+  {
+    "corp_code": "00161860",
+    "corp_name": "한성기업(주)",
+    "stock_code": "003680",
+    "corp_cls": "Y",
+    "induty_code": "10211"
+  },
+  {
+    "corp_code": "00990165",
+    "corp_name": "아세아시멘트(주)",
+    "stock_code": "183190",
+    "corp_cls": "Y",
+    "induty_code": "23311"
+  },
+  {
+    "corp_code": "01116265",
+    "corp_name": "(주)카티스",
+    "stock_code": "140430",
+    "corp_cls": "K",
+    "induty_code": "620"
+  },
+  {
+    "corp_code": "00268002",
+    "corp_name": "세종텔레콤(주)",
+    "stock_code": "036630",
+    "corp_cls": "K",
+    "induty_code": "423"
+  },
+  {
+    "corp_code": "00230425",
+    "corp_name": "(주)나노엔텍",
+    "stock_code": "039860",
+    "corp_cls": "K",
+    "induty_code": "27199"
+  },
+  {
+    "corp_code": "00152880",
+    "corp_name": "코오롱글로벌(주)",
+    "stock_code": "003070",
+    "corp_cls": "Y",
+    "induty_code": "41221"
+  },
+  {
+    "corp_code": "00545929",
+    "corp_name": "(주)제넥신",
+    "stock_code": "095700",
+    "corp_cls": "K",
+    "induty_code": "70113"
+  },
+  {
+    "corp_code": "00616962",
+    "corp_name": "린드먼아시아인베스트먼트(주)",
+    "stock_code": "277070",
+    "corp_cls": "K",
+    "induty_code": "64209"
+  },
+  {
+    "corp_code": "00540641",
+    "corp_name": "(주)동양고속",
+    "stock_code": "084670",
+    "corp_cls": "Y",
+    "induty_code": "49220"
+  },
+  {
+    "corp_code": "00125822",
+    "corp_name": "삼보산업 주식회사",
+    "stock_code": "009620",
+    "corp_cls": "K",
+    "induty_code": "24222"
+  }
+]

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>공시 리터러시 DS · 5 화면 · 와이어프레임</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <span class="brand">공시 리터러시 DS <span class="mono" style="font-size:11px;font-weight:500">v2</span></span>
+  <a href="design-system.html">1 · 원칙 &amp; 파운데이션</a>
+  <a href="components.html">2 · 컴포넌트</a>
+  <a href="patterns.html">3 · 상태 패턴 · 접근성</a>
+  <a href="streamlit-mapping.html">4 · 구현 매핑 (Streamlit)</a>
+  <span class="cur">5 · 화면 · 와이어프레임</span>
+  <span class="spacer"></span>
+  <button data-theme-toggle>◐ 테마</button>
+</nav>
+
+<div class="wrap">
+  <aside class="note" style="margin:16px 0;padding:16px" role="note">
+    <strong>초기 설계 아카이브 · 2026-09-11</strong> — 현재 UI에는 레트로 입력 단말기와
+    서술형 맥락 지도를 사용합니다. 아래 예측형 통계·종목 미특정 경로는 현행 구현 기준이 아닙니다.
+    <a href="../03_screen_contract.md">현재 화면 계약</a> ·
+    <a href="../07_visual_style.md">레트로 적용 범위</a>
+  </aside>
+
+  <header class="pagehead">
+    <div class="t">5 · 화면 흐름 · 와이어프레임</div>
+    <div class="s">브라우저 탭 목업(Streamlit, 데스크톱 폭 기준 축소) — 정본: <code>../02_ui_flow.md</code> · <code>../03_screen_contract.md</code></div>
+    <div class="toc">
+      <a href="#s0">흐름도</a><a href="#s1">idle</a><a href="#s2">loading</a><a href="#s3">result-fact</a><a href="#s4">result-phrase-only</a><a href="#s5">result-empty</a><a href="#s6">sample</a>
+    </div>
+  </header>
+
+  <section id="s0" class="sec card pad">
+    <div class="sec-h"><span class="sec-num">S-00</span><span class="sec-t">화면 흐름도</span><span class="tag">FLOW-001 · FLOW-002</span></div>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px">
+      <span class="badge" style="background:var(--ds-inverse-surface);color:var(--ds-inverse-on-surface)">앱 방문</span><span class="mono">→</span>
+      <span class="badge" style="background:var(--ds-secondary-container);color:var(--ds-on-secondary-container)">idle</span><span class="mono">─ 입력+확인 →</span>
+      <span class="badge" style="background:var(--ds-primary-container);color:var(--ds-on-primary-container)">loading</span><span class="mono">→</span>
+      <span class="badge" style="background:var(--ds-secondary-container);color:var(--ds-on-secondary-container)">result-fact</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;margin-top:4px">
+      <span class="mono">loading →</span>
+      <span class="badge" style="background:var(--ds-secondary-container);color:var(--ds-on-secondary-container)">result-phrase-only</span>
+      <span class="mono">(corp_code 미해석) · loading →</span>
+      <span class="badge" style="background:var(--ds-secondary-container);color:var(--ds-on-secondary-container)">result-empty</span>
+      <span class="mono">(공시 없음) · loading →</span>
+      <span class="badge" style="background:var(--ds-tertiary-container);color:var(--ds-on-tertiary-container)">sample</span>
+      <span class="mono">(엔진 미구현)</span>
+    </div>
+    <div class="note" style="margin-top:6px">단일 화면(SCR-001) 안의 상태 전이일 뿐 — 별도 페이지 이동은 없다(FLOW-001·002 모두 같은 입력창을 공유).</div>
+  </section>
+
+  <section id="s1" class="sec">
+    <div class="sec-h"><span class="sec-num">S-01</span><span class="sec-t">SCR-001 · idle</span><span class="tag">첫 방문 · REQ-F-001</span></div>
+    <div class="frame">
+      <div class="win sm">
+        <div class="titlebar"><span class="apptitle"><span class="msym" style="font-size:14px;color:var(--ds-primary)">balance</span>공시 리터러시 어시스턴트</span><span class="winctl">streamlit.app</span></div>
+        <div class="winbody">
+          <div style="font-size:11px;color:var(--ds-on-surface-variant);margin-bottom:10px">매수·매도 추천, 목표가, 등급은 제공하지 않으며 최종 판단은 항상 사용자 몫입니다.</div>
+          <div class="inputbox" style="margin-bottom:8px">예: OO전자, 2차전지 신사업 MOU 체결설...</div>
+          <div class="btn btn-fill" style="height:32px;font-size:12px">확인</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s2" class="sec">
+    <div class="sec-h"><span class="sec-num">S-02</span><span class="sec-t">SCR-001 · loading</span><span class="tag">C-06</span></div>
+    <div class="frame">
+      <div class="win sm">
+        <div class="titlebar"><span class="apptitle"><span class="msym" style="font-size:14px;color:var(--ds-primary)">balance</span>공시 리터러시 어시스턴트</span><span class="winctl">streamlit.app</span></div>
+        <div class="winbody">
+          <div class="inputbox" style="margin-bottom:12px;opacity:.6">OO전자, 2차전지 신사업 MOU 체결설...</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ds-on-surface-variant)"><span class="spin"></span>공시 대조 중...</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s3" class="sec">
+    <div class="sec-h"><span class="sec-num">S-03</span><span class="sec-t">SCR-001 · result-fact</span><span class="tag">C-03·C-04·C-05</span></div>
+    <div class="frame">
+      <div class="win">
+        <div class="titlebar"><span class="apptitle"><span class="msym" style="font-size:14px;color:var(--ds-primary)">balance</span>공시 리터러시 어시스턴트</span><span class="winctl">streamlit.app</span></div>
+        <div class="winbody">
+          <div style="font-size:12px;font-weight:700;margin-bottom:8px">공시 사실 대조</div>
+          <div class="factcols" style="margin-bottom:10px">
+            <div class="factcol"><h4>뒷받침하는 사실</h4><ul><li>유상증자 500억원 결정 사실이 있습니다.</li></ul></div>
+            <div class="factcol"><h4>배치되는 사실</h4><ul><li>발행가액은 아직 미확정입니다.</li></ul></div>
+          </div>
+          <div style="border:1px solid var(--ds-outline-variant);border-radius:8px;padding:8px 10px;font-size:11px;color:var(--ds-primary);margin-bottom:12px">근거 원문 — 유상증자</div>
+          <div style="font-size:12px;font-weight:700;margin-bottom:6px">이 표현의 과거 패턴</div>
+          <div style="font-size:11.5px">과거 12건 중 <b class="mono">7건</b>이 '유상증자'로 이어졌습니다. <span class="badge" style="background:var(--ds-st-significant-bg);color:var(--ds-st-significant-fg);border:1px solid var(--ds-outline-variant)">유의함</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="note" style="margin-top:8px">두 컬럼 폭이 같고, 화법통계 카드는 팩트체크 카드 <b>아래에</b> 자동 첨부(DESIGN.md "L2a 결과에 L2b를 자동 주석으로 결합").</div>
+  </section>
+
+  <section id="s4" class="sec">
+    <div class="sec-h"><span class="sec-num">S-04</span><span class="sec-t">SCR-001 · result-phrase-only</span><span class="tag">종목 미특정 · FLOW-002</span></div>
+    <div class="frame">
+      <div class="win sm">
+        <div class="titlebar"><span class="apptitle"><span class="msym" style="font-size:14px;color:var(--ds-primary)">balance</span>공시 리터러시 어시스턴트</span><span class="winctl">streamlit.app</span></div>
+        <div class="winbody">
+          <div style="font-size:12px;font-weight:700;margin-bottom:6px">이 표현의 과거 패턴</div>
+          <div style="font-size:11.5px">표본 2건 <span class="badge" style="background:var(--ds-st-insufficient-bg);color:var(--ds-st-insufficient-fg)">표본 부족</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="note" style="margin-top:8px">팩트체크 카드(C-03)는 아예 렌더링되지 않는다 — <span class="mono">card.fact_check is None</span>이면 그 섹션 자체가 없음(비어있는 카드 틀조차 안 보임).</div>
+  </section>
+
+  <section id="s5" class="sec">
+    <div class="sec-h"><span class="sec-num">S-05</span><span class="sec-t">SCR-001 · result-empty</span><span class="tag">관련 공시 없음</span></div>
+    <div class="frame">
+      <div class="win sm">
+        <div class="titlebar"><span class="apptitle"><span class="msym" style="font-size:14px;color:var(--ds-primary)">balance</span>공시 리터러시 어시스턴트</span><span class="winctl">streamlit.app</span></div>
+        <div class="winbody">
+          <div style="border:1px solid var(--ds-outline-variant);border-radius:8px;padding:10px 12px;font-size:12px;color:var(--ds-on-surface-variant);display:flex;align-items:center;gap:6px"><span class="msym" style="font-size:16px">info</span>관련 공시를 찾지 못했습니다.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s6" class="sec">
+    <div class="sec-h"><span class="sec-num">S-06</span><span class="sec-t">SCR-001 · sample</span><span class="tag">C-07 · STATE-001 INV-01</span></div>
+    <div class="frame">
+      <div class="win sm">
+        <div class="titlebar"><span class="apptitle"><span class="msym" style="font-size:14px;color:var(--ds-primary)">balance</span>공시 리터러시 어시스턴트</span><span class="winctl">streamlit.app</span></div>
+        <div class="winbody">
+          <div style="font-size:11px;color:var(--ds-on-surface-variant);margin-bottom:8px">🧪 팩트체크/화법통계 엔진이 아직 구현되지 않아 레이아웃 확인용 샘플로 표시 중입니다.</div>
+          <div class="factcols">
+            <div class="factcol"><h4>뒷받침하는 사실</h4><ul><li>(샘플) 유상증자 500억원 결정 사실이 있습니다.</li></ul></div>
+            <div class="factcol"><h4>배치되는 사실</h4><ul><li>(샘플) 발행가액은 아직 미확정입니다.</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="note" style="margin-top:8px">레이아웃은 result-fact(S-03)와 동일 — 차이는 상단 캡션 유무뿐. 엔진이 연결되면 이 상태 자체가 사라진다(항상 result-fact/phrase-only/empty 중 하나로 대체).</div>
+  </section>
+
+  <footer class="ds">공시 리터러시 어시스턴트 DS v2 · 2026-09-11</footer>
+</div>
+
+<script src="ds.js"></script>
+</body>
+</html>

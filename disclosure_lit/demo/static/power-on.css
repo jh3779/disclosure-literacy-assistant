@@ -1,0 +1,10 @@
+@keyframes crtOn {
+  0% { transform: scale(1, .008); filter: brightness(2); opacity: .5; }
+  35% { transform: scale(1, .008); filter: brightness(2); opacity: 1; }
+  75% { transform: scale(1, 1); filter: brightness(1.15); }
+  100% { transform: scale(1, 1); filter: brightness(1); }
+}
+.st-key-crt { animation: crtOn .65s cubic-bezier(.2,.8,.2,1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .st-key-crt { animation: none !important; }
+}

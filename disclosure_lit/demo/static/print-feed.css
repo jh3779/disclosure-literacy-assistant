@@ -1,0 +1,21 @@
+/* One sheet feeds from the slot. Content is fully visible without this one-shot stylesheet. */
+@media (prefers-reduced-motion: no-preference) {
+  .st-key-printer .st-key-printout {
+    animation: paperFeed 1s cubic-bezier(.16, 1, .3, 1) backwards;
+  }
+  /* Keyboard users can start reading immediately, including during the entrance. */
+  .st-key-printer .st-key-printout:focus-within {
+    clip-path: none !important;
+    transform: none !important;
+  }
+}
+@keyframes paperFeed {
+  from {
+    transform: translateY(-24px);
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    transform: translateY(0);
+    clip-path: inset(-32px -32px -48px -32px);
+  }
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>공시 리터러시 DS · 3 상태 패턴 · 접근성</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <span class="brand">공시 리터러시 DS <span class="mono" style="font-size:11px;font-weight:500">v2</span></span>
+  <a href="design-system.html">1 · 원칙 &amp; 파운데이션</a>
+  <a href="components.html">2 · 컴포넌트</a>
+  <span class="cur">3 · 상태 패턴 · 접근성</span>
+  <a href="streamlit-mapping.html">4 · 구현 매핑 (Streamlit)</a>
+  <a href="wireframes.html">5 · 화면 · 와이어프레임</a>
+  <span class="spacer"></span>
+  <button data-theme-toggle>◐ 테마</button>
+</nav>
+
+<div class="wrap">
+  <aside class="note" style="margin:16px 0;padding:16px" role="note">
+    <strong>초기 설계 아카이브 · 2026-09-11</strong> — 현재 UI에는 레트로 입력 단말기와
+    서술형 맥락 지도를 사용합니다. 아래 예측형 통계·종목 미특정 경로는 현행 구현 기준이 아닙니다.
+    <a href="../03_screen_contract.md">현재 화면 계약</a> ·
+    <a href="../07_visual_style.md">레트로 적용 범위</a>
+  </aside>
+
+  <header class="pagehead">
+    <div class="t">3 · 상태 패턴 · 접근성</div>
+    <div class="s">SCR-001의 상태 표현과 문안 규칙 — 정본: <code>../03_screen_contract.md</code> · <code>../05_state_machine.md</code></div>
+    <div class="toc">
+      <a href="#p1">상태 매트릭스</a><a href="#p2">화법통계 3변형</a><a href="#p3">문안 규칙</a><a href="#p4">접근성</a>
+    </div>
+  </header>
+
+  <section id="p1" class="sec card pad">
+    <div class="sec-h"><span class="sec-num">P-01</span><span class="sec-t">SCR-001 상태 매트릭스</span><span class="tag">STATE-001 전 상태 — 누락 없음</span></div>
+    <div class="tblwrap"><table>
+      <tr><th>화면</th><th>상태</th><th>표현</th><th>주요 행동</th></tr>
+      <tr><td rowspan="6" class="mono">SCR-001<br>메인(유일 화면)</td><td class="mono">idle</td><td>입력창만, 결과 영역 없음</td><td>문장 입력 → 확인</td></tr>
+      <tr><td class="mono">loading</td><td>"공시 대조 중..." 스피너(C-06)</td><td>대기만 — 취소 없음</td></tr>
+      <tr><td class="mono">result-fact</td><td>2단 컬럼 사실 카드(C-03) + 근거 expander(C-04) + (매칭 시) 화법통계 카드(C-05)</td><td>근거 펼치기</td></tr>
+      <tr><td class="mono">result-phrase-only</td><td>화법통계 카드(C-05)만</td><td>—</td></tr>
+      <tr><td class="mono">result-empty</td><td><span class="mono">st.info</span> "관련 공시를 찾지 못했습니다"</td><td>다른 문장 재입력</td></tr>
+      <tr><td class="mono">sample</td><td>샘플 배지(C-07) + 동일 레이아웃</td><td>—</td></tr>
+    </table></div>
+    <div class="note">로딩 이후 상태가 5갈래로 나뉘는 이유: <span class="mono">claim.corp_code</span> 해석 성공/실패, <span class="mono">items</span> 존재 여부, 엔진 <span class="mono">NotImplementedError</span> 여부라는 3개의 독립 분기가 겹치기 때문(<code>demo/app.py::_build_card</code> 실제 로직 그대로).</div>
+  </section>
+
+  <section id="p2" class="sec card pad">
+    <div class="sec-h"><span class="sec-num">P-02</span><span class="sec-t">화법통계 카드 — 3변형</span><span class="tag">STATE-002 · C-05</span></div>
+    <div style="display:flex;flex-direction:column;gap:8px;max-width:460px">
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px"><span class="badge" style="background:var(--ds-st-significant-bg);color:var(--ds-st-significant-fg);border:1px solid var(--ds-outline-variant)">유의함</span>수치 강조(bold) + 사후 이벤트 라벨</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px"><span class="badge" style="background:var(--ds-st-insufficient-bg);color:var(--ds-st-insufficient-fg)">표본 부족</span>경고 문구만, 수치 비강조</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px"><span class="mono" style="color:var(--ds-outline)">(카드 자체 생략)</span>매칭 실패 — "매칭 없음" 문구조차 없음</div>
+    </div>
+    <div class="note" style="margin-top:8px">세 번째 변형(생략)이 실제로 가장 흔한 케이스가 될 것이다 — 상투구 매칭 실패가 매칭 성공보다 훨씬 많을 걸로 예상되기 때문(Issue #32/DEC-005 합의: 매번 "매칭 없음"을 보여주면 노이즈만 늘어남).</div>
+  </section>
+
+  <section id="p3" class="sec card pad">
+    <div class="sec-h"><span class="sec-num">P-03</span><span class="sec-t">문안 규칙</span><span class="tag">F-01 비전문 투자자 언어</span></div>
+    <div class="tblwrap"><table>
+      <tr><th>상황</th><th>쓰지 않는 표현</th><th>쓰는 표현</th></tr>
+      <tr><td>관련 공시 없음</td><td class="mono">items=[]</td><td>"관련 공시를 찾지 못했습니다"</td></tr>
+      <tr><td>엔진 미구현</td><td class="mono">NotImplementedError</td><td>"🧪 레이아웃 확인용 샘플로 표시 중입니다"</td></tr>
+      <tr><td>표본 부족</td><td>"불충분한 표본" 같은 통계 용어 그대로</td><td>"표본 N건 — 통계적으로 유의하지 않습니다"</td></tr>
+      <tr><td>어떤 경우에도</td><td>"매수 추천", "목표가", "투자의견", 등급/신호등 표현 일체</td><td>사실 문장 + 근거 링크만</td></tr>
+    </table></div>
+  </section>
+
+  <section id="p4" class="sec card pad">
+    <div class="sec-h"><span class="sec-num">P-04</span><span class="sec-t">접근성</span><span class="tag">REQ-NF-005 · 2026-09-11 결정</span></div>
+    <div class="note">데모 최소 기준만 — Streamlit 기본 컴포넌트를 그대로 쓰고(커스텀 위젯으로 키보드 포커스를 깨뜨리지 않음), 명도 대비는 Streamlit 기본 테마에 위임한다. 별도 WCAG 등급 목표는 두지 않는다(팀 3인·발표 데모 스코프 — <code>../01_requirements.md</code> REQ-NF-005).</div>
+    <div class="tblwrap" style="margin-top:8px"><table>
+      <tr><th>항목</th><th>기준</th></tr>
+      <tr><td>키보드 포커스</td><td>Streamlit 기본 컴포넌트만 사용 — 별도 처리 안 함</td></tr>
+      <tr><td>색 대비</td><td>Ledger Blue 토큰은 M3 tonal 기준 자체 대비 확보(F-02) — WCAG AA 정밀 측정은 스코프 밖</td></tr>
+      <tr><td>색 단독 정보 전달</td><td>화법통계 유의성은 배지 텍스트("유의함"/"표본 부족")를 항상 색과 함께 표기 — 색만으로 구분하지 않음</td></tr>
+    </table></div>
+  </section>
+
+  <footer class="ds">공시 리터러시 어시스턴트 DS v2 · 2026-09-11</footer>
+</div>
+
+<script src="ds.js"></script>
+</body>
+</html>

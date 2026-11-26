@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  markdown-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: DavidAnson/markdownlint-cli2-action@v19
+        with:
+          globs: "**/*.md"
+
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.5"
+          python-version: "3.12"
+
+      # local extra(sentence-transformers/torch, ~2.5GB)는 설치 안 함 — 그게 필요한
+      # 테스트는 `slow` 마커로 기본 pytest에서 이미 제외됨(pyproject.toml addopts)
+      - name: Install dependencies
+        run: uv sync --locked --dev
+
+      - name: Ruff lint
+        run: uv run ruff check .
+
+      - name: Ruff format check
+        run: uv run ruff format --check .
+
+      - name: Test (pytest)
+        run: uv run pytest
