@@ -14,8 +14,13 @@
   공개에 적합하지 않은 내용은 서술에서 제외했다.
 - **`원문 불분명`**은 입력된 원문에서 후속 반영이나 결과를 확인하지 못했다는 뜻이다. 반영되지 않았다는 뜻이
   아니다.
-- 사람은 GitHub id로만 적었다: `powercodingman`(A, DART 파이프라인), `9abin`(B, L2a 팩트체크),
-  `jh3779`(C, L2b·UI·평가). 의견 차이는 안(案) 단위로 서술했다.
+- 사람은 아래 GitHub id로 적었다. 의견 차이는 안(案) 단위로 서술했다.
+
+  | GitHub id | 이름 | 파트 |
+  | --- | --- | --- |
+  | `powercodingman` | 이승노 | A — DART 파이프라인, 과거 공시 사례 라벨링 |
+  | `9abin` | 김가빈 | B — L2a 팩트체크 엔진 |
+  | `jh3779` | 우지훈 | C — L1 조회 연동, L2b 화법통계 엔진, L3/L4 통합 UI, L5 gold set |
 - 기준 설계는 [DESIGN.md](DESIGN.md), 화면 계약은 [03_screen_contract.md](03_screen_contract.md)를 본다.
   이 문서는 그 결정에 이른 과정만 다룬다.
 
