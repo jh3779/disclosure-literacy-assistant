@@ -174,6 +174,16 @@ tests/             690여 건(계층 의존 방향 검사 포함)
 
 ---
 
+## 팀
+
+| 이름 | GitHub | 담당 |
+| --- | --- | --- |
+| 이승노 | [powercodingman](https://github.com/powercodingman) | DART 파이프라인(L0), 과거 공시 사례 라벨링 |
+| 김가빈 | [9abin](https://github.com/9abin) | L2a 팩트체크 엔진 |
+| 우지훈 | [jh3779](https://github.com/jh3779) | L1 조회 연동, L2b 화법통계 엔진, L3·L4 통합 UI, L5 골드셋 |
+
+---
+
 ## 라이선스
 
 [MIT License](LICENSE).
